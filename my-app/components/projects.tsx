@@ -9,7 +9,7 @@ export default function Projects() {
       title: "DNN Models for Blood Clot Detection",
       description:
         "Developed scalable DNN models using Ray Tune to predict washout for blood clot detection in COVID patients from computational fluid dynamics data.",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "/dnn_cover.jpg?height=550&width=500",
       tags: ["Python", "PyTorch", "Ray Tune", "Machine Learning", "Research"],
       liveLink: "https://iacis.org/iis/2024/4_iis_2024_136-142.pdf",
       githubLink: "https://github.com/hozaifaO/covid-clot-detection",
@@ -19,7 +19,7 @@ export default function Projects() {
       title: "Internet Routing Integrity Project",
       description:
         "Full-stack project with NSA Lab exploring ARIN datasets and visualizing RPKI information for policymakers, with aggregated statistics and visualizations.",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "/IRI_cover.png?height=550&width=500",
       tags: ["Angular", "ExpressJS", "MongoDB", "AWS", "Data Visualization"],
       liveLink: "https://ncsu-las.org/2024/11/internet-routing-integrity/",
       githubLink: "https://github.com/hozaifaO/routing-integrity",
@@ -69,7 +69,7 @@ export default function Projects() {
                   alt={project.title}
                   className="w-full h-full object-cover"
                   width={500}
-                  height={300}
+                  height={500}
                 />
               </div>
 
