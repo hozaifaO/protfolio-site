@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
+import ProjectCard from "./project-card"
 
 export default function Projects() {
   const projects = [
@@ -8,9 +9,9 @@ export default function Projects() {
       id: 1,
       title: "DNN Models for Blood Clot Detection",
       description:
-        "Developed scalable DNN models using Ray Tune to predict washout for blood clot detection in COVID patients from computational fluid dynamics data.",
+        "Conducted research to develop foundational DNN models using PyTorch and Ray Tune for predicting blood clots (Thrombogenesis) in COVID-19 patients, analyzing Computational Fluid Dynamics (CFD) data. Explored hyperparameter optimization, dimensionality reduction, data-streaming techniques, GPU optimization and scheduling techniques, and data encoding techniques.",
       image: "/dnn_cover.jpg?height=550&width=500",
-      tags: ["Python", "PyTorch", "Ray Tune", "Machine Learning", "Research"],
+      tags: ["Python", "PyTorch", "Ray Tune", "Machine Learning", "Research", "XGBoost", "TensorFlow", "Scikit-learn", "AWS", "CFD", "Pandas"],
       liveLink: "https://iacis.org/iis/2024/4_iis_2024_136-142.pdf",
       githubLink: "https://github.com/hozaifaO/covid-clot-detection",
     },
@@ -18,93 +19,60 @@ export default function Projects() {
       id: 2,
       title: "Internet Routing Integrity Project",
       description:
-        "Full-stack project with NSA Lab exploring ARIN datasets and visualizing RPKI information for policymakers, with aggregated statistics and visualizations.",
+        "Led a student team in a full-stack research project with the NSA Lab (LAS @ NCSU). Explored ARIN datasets, visualized RPKI information and helped develop a full-stack website for policymakers using Angular and Flask. Built ETL pipelines and integrated REST APIs. Later presented and demoed the project to NIST.",
       image: "/IRI_cover.png?height=550&width=500",
-      tags: ["Angular", "ExpressJS", "MongoDB", "AWS", "Data Visualization"],
+      tags: ["Angular", "Flask", "MongoDB", "AWS", "Data Analysis", "Python", "TypeScript", "REST-API", "ETL", "ARIN", "RPKI", "Full-Stack", "Model deployment","Hyperparameter Optimization", "Model Finetuning", "OpenAI / Claude / Gemini", "Hugging Face", "Research", "W&B"],
       liveLink: "https://ncsu-las.org/2024/11/internet-routing-integrity/",
-      githubLink: "https://github.com/hozaifaO/routing-integrity",
+      githubLink: "",
     },
     {
-      id: 3,
+      id: 5,
       title: "1-Layer Digit Recognition from Scratch",
       description:
-        "Developed a single-layer neural network for digit recognition using only Pandas by manually implementing forward propagation, backpropagation, and weight updates.",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Python", "Pandas", "Neural Networks", "Machine Learning"],
+        "Developed a single-layer neural network for digit recognition using only Pandas (83% accuracy) by manually implementing propagation and updates. Later version with PyTorch achieved 94% accuracy.",
+      image: "/1layerDigitRecog.jpeg?height=550&width=500",
+      tags: ["Python", "Pandas", "PyTorch", "Neural Networks", "Machine Learning"],
       liveLink: "https://www.kaggle.com/code/hozaifa/guidednn-1layer-learning",
       githubLink: "https://www.kaggle.com/code/hozaifa/nn-image-learning-usingpytorch",
     },
     {
       id: 4,
-      title: "Car Reviews Analysis with LLMs",
+      title: "Car Reviews Analysis with LLMs ('Car-ing')",
       description:
-        "Processing car reviews using NLP techniques including sentiment analysis, key sentence extraction, translation, and summarization with BART model.",
-      image: "/placeholder.svg?height=300&width=500",
-      tags: ["Python", "NLP", "DistilBERT", "BART", "Machine Learning"],
+        "Built a FastAPI-based NLP service ('Car-ing') using DistilBERT, Helsinki-NLP, BART, etc. for sentiment analysis, translation, Q&A, and summarization. Deployed with Docker Compose and experimented with Azure Kubernetes. Implemented MLOps pipelines.",
+      image: "/caring.jpg?height=550&width=500",
+      tags: ["Python", "NLP", "DistilBERT", "BART", "Machine Learning", "FastAPI", "Docker", "Azure", "Kubernetes", "MLOps"],
       liveLink: "https://www.datacamp.com/datalab/w/69d93e2d-9bbb-4544-b117-4aef94532895/edit",
-      githubLink: "https://github.com/hozaifaO/car-reviews-llm",
+      githubLink: "https://github.com/hozaifaO/Car-Review-Analytics-Chatbot",
+    },
+    {
+      id: 3,
+      title: "AI-Udoin? Personal Therapy Multi Voice Agent",
+      description:
+        "Developed a therapy-oriented multi-call agent (HackUNCP 2025 Healthcare Track Winner). Engineered context-aware conversations using LLMs augmented via Pinecone vector DB (RAG) and built a dynamic multi-voice synthesis pipeline. We are exploring further implimentations of this project",
+      image: "/IMG_6806.jpg?height=300&width=500",
+      tags: ["Python", "LLM", "RAG", "Pinecone", "Vector DB", "Azure", "Voice Synthesis", "Hackathon"],
+      liveLink: "", // Add link if available, e.g., to hackathon page or demo
+      githubLink: "", // Add link if available
     },
   ]
 
+  const sortedProjects = projects.sort((a, b) => a.id - b.id);
+
   return (
-    <section id="projects" className="py-16 bg-white">
+    <section id="projects" className="py-16 bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900">My Projects</h2>
-          <div className="mt-2 h-1 w-20 bg-gray-800 mx-auto"></div>
-          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-foreground">My Projects</h2>
+          <div className="mt-2 h-1 w-20 bg-primary mx-auto"></div>
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
             A selection of my research and personal projects focusing on machine learning, data analytics, and web development.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="bg-gray-50 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="h-48 overflow-hidden">
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                  width={500}
-                  height={500}
-                />
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="px-2 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-4">
-                  <Link
-                    href={project.liveLink}
-                    className="flex items-center text-gray-700 hover:text-gray-900"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink size={16} className="mr-1" /> View Project
-                  </Link>
-                  <Link
-                    href={project.githubLink}
-                    className="flex items-center text-gray-700 hover:text-gray-900"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github size={16} className="mr-1" /> Code
-                  </Link>
-                </div>
-              </div>
-            </div>
+          {sortedProjects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
       </div>

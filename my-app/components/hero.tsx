@@ -1,23 +1,23 @@
 import Link from "next/link"
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
+import { ArrowRight, Github, Linkedin, Mail, Download } from "lucide-react"
 
 export default function Hero() {
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-20 md:py-28 bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Hi, I&apos;m <span className="text-gray-800">Hozaifa Owaisi</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Hi, I&apos;m <span className="text-primary">Hozaifa Owaisi</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Computer Science student and researcher passionate about machine learning, data analytics, and full-stack development.
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            AI Developer and Researcher
           </p>
           <div className="flex justify-center space-x-4 mb-10">
             <Link
               href="https://github.com/hozaifaO"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors text-muted-foreground hover:text-foreground"
             >
               <Github size={24} />
             </Link>
@@ -25,13 +25,13 @@ export default function Hero() {
               href="https://www.linkedin.com/in/hozaifa-o-a0b580266/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors text-muted-foreground hover:text-foreground"
             >
               <Linkedin size={24} />
             </Link>
             <Link
               href="mailto:howaisi.h@gmail.com"
-              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors text-muted-foreground hover:text-foreground"
             >
               <Mail size={24} />
             </Link>
@@ -39,15 +39,17 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="#projects"
-              className="px-6 py-3 rounded-md bg-gray-800 text-white hover:bg-gray-700 transition-colors flex items-center justify-center gap-2"
+              className="px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
             >
               View My Work <ArrowRight size={16} />
             </Link>
             <Link
-              href="#contact"
-              className="px-6 py-3 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+              href="/H_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-md border border-border text-muted-foreground hover:bg-muted hover:text-foreground transition-colors flex items-center justify-center gap-2"
             >
-              Contact Me
+              <Download size={16} /> Download Resume
             </Link>
           </div>
         </div>
