@@ -26,6 +26,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const currentCardRef = cardRef.current; // Capture ref value
     const observer = new IntersectionObserver(
       ([entry]) => {
         // Update state when element comes into view
@@ -40,17 +41,17 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       }
     );
 
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
+    if (currentCardRef) {
+      observer.observe(currentCardRef);
     }
 
     // Cleanup observer on component unmount
     return () => {
-      if (cardRef.current) {
-        observer.unobserve(cardRef.current);
+      if (currentCardRef) {
+        observer.unobserve(currentCardRef); // Use captured value in cleanup
       }
     };
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []); // Empty dependency array is correct here as we only want mount/unmount logic
 
   return (
     <div

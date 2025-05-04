@@ -46,7 +46,7 @@ export default function About() {
             </div>
 
             <p className="text-muted-foreground">
-              I am a dedicated and passionate individual pursuing my interests in Computer Science, Data Science, and AI/ML. My drive stems from a deep love for tackling intricate challenges, whether in machine learning, data exploration and engineering, AI, web security, or development and operations. I thrive on the process of problem-solving, spending days searching for solutions, experimenting with different approaches, learning from failures, and eventually uncovering the right path. It's the journey, not just the result, that excites me most. I am a quick learner, often eager to join and explore new things.
+              I am a dedicated and passionate individual pursuing my interests in Computer Science, Data Science, and AI/ML. My drive stems from a deep love for tackling intricate challenges, whether in machine learning, data exploration and engineering, AI, web security, or development and operations. I thrive on the process of problem-solving, spending days searching for solutions, experimenting with different approaches, learning from failures, and eventually uncovering the right path. It&apos;s the journey, not just the result, that excites me most. I am a quick learner, often eager to join and explore new things.
             </p>
           </div>
         </div>

@@ -1,6 +1,3 @@
-import Link from "next/link"
-import Image from "next/image"
-import { ExternalLink, Github } from "lucide-react"
 import ProjectCard from "./project-card"
 
 export default function Projects() {
