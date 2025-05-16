@@ -17,7 +17,7 @@ jobs:
       - name: Run AI Review
         uses: hozaifaO/AY-I-WILL-CODE-REVIEW@master
         with:
-          openai-key: ${{ secrets.OPENAI_KEY }}
+          openai_key: ${{ secrets.OPENAI_KEY }}
           model: ${{ inputs.model }}     # if you needed to override
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
