@@ -2,18 +2,18 @@ import Image from "next/image"
 
 export default function About() {
   return (
-    <section id="about" className="py-16 bg-gray-50">
+    <section id="about" className="py-16 bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900">About Me</h2>
-          <div className="mt-2 h-1 w-20 bg-gray-800 mx-auto"></div>
+          <h2 className="text-3xl font-bold text-foreground">About Me</h2>
+          <div className="mt-2 h-1 w-20 bg-primary mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden">
+          <div className="aspect-square bg-muted rounded-lg overflow-hidden">
             <Image 
               src="/profile_pic.JPG" 
-              alt="Profile image from hackethon" 
+              alt="Hozaifa Owaisi profile picture from hackathon" 
               className="w-full h-full object-cover"
               width={400}
               height={400}
@@ -21,23 +21,23 @@ export default function About() {
           </div>
 
           <div>
-            <h3 className="text-2xl font-semibold mb-4 text-gray-900">Education</h3>
+            <h3 className="text-2xl font-semibold mb-4 text-foreground">Education</h3>
             <div className="mb-6">
-              <p className="text-gray-900 font-medium">University of North Carolina at Pembroke</p>
-              <p className="text-gray-700">Bachelor of Science, Major: Computer Science, Minor: Cybersecurity</p>
-              <p className="text-gray-600 text-sm mb-2">Expected May 2025</p>
+              <p className="text-foreground font-medium">University of North Carolina at Pembroke</p>
+              <p className="text-muted-foreground">Bachelor of Science, Major: Computer Science, Minor: Cybersecurity</p>
+              <p className="text-muted-foreground/80 text-sm mb-2">Expected May 2025</p>
               
-              <p className="text-gray-900 font-medium mt-4">Wake Technical Community College</p>
-              <p className="text-gray-700">Associates in Engineeing Transfer Program, Major: Computer Science</p>
-              <p className="text-gray-600 text-sm">August 2022</p>
+              <p className="text-foreground font-medium mt-4">Wake Technical Community College</p>
+              <p className="text-muted-foreground">Associates in Engineering Transfer Program, Major: Computer Science</p>
+              <p className="text-muted-foreground/80 text-sm">August 2022</p>
             </div>
 
             <div className="mb-6">
-              <h4 className="text-xl font-medium mb-3 text-gray-900">My Skills</h4>
+              <h4 className="text-xl font-medium mb-3 text-foreground">My Skills</h4>
               <div className="flex flex-wrap gap-2">
                 {["Python", "Java", "TypeScript", "React", "Express", "SpringBoot", "MongoDB", "AWS", "PyTorch", "TensorFlow", "Git", "Docker"].map(
                   (skill) => (
-                    <span key={skill} className="px-3 py-1 bg-gray-200 text-gray-800 rounded-full text-sm">
+                    <span key={skill} className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm">
                       {skill}
                     </span>
                   ),
@@ -45,8 +45,8 @@ export default function About() {
               </div>
             </div>
 
-            <p className="text-gray-600">
-              I&apos;m actively involved in AI and CS clubs on campus and serve as a resident advisor. I&apos;m passionate about research, having worked on DNN models for blood clot detection in COVID patients and contributed to the Internet Routing Integrity Project with NSA Lab at NCSU.
+            <p className="text-muted-foreground">
+              I am a dedicated and passionate individual pursuing my interests in Computer Science, Data Science, and AI/ML. My drive stems from a deep love for tackling intricate challenges, whether in machine learning, data exploration and engineering, AI, web security, or development and operations. I thrive on the process of problem-solving, spending days searching for solutions, experimenting with different approaches, learning from failures, and eventually uncovering the right path. It&apos;s the journey, not just the result, that excites me most. I am a quick learner, often eager to join and explore new things.
             </p>
           </div>
         </div>
