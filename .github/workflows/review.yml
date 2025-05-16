@@ -12,15 +12,16 @@ jobs:
       issues: write
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Run AI Review
         uses: hozaifaO/AY-I-WILL-CODE-REVIEW@master
         with:
-          openai_key: ${{ secrets.OPENAI_KEY }}
-          model: ${{ inputs.model }}     # if you needed to override
+          azure-endpoint: ${{ secrets.AZURE_ENDPOINT }}
+          azure-api-key:  ${{ secrets.AZURE_API_KEY }}
+          azure-model:    DeepSeek-V3-0324
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GITHUB_TOKEN:      ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER:         ${{ github.event.pull_request.number }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-
