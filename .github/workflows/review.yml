@@ -14,6 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run AI Review
-        uses: hozaifaO/AY-I-WILL-CODE-REVIEW@main
+        uses: hozaifaO/AY-I-WILL-CODE-REVIEW@master
         with:
           openai-key: ${{ secrets.OPENAI_KEY }}
