@@ -18,8 +18,7 @@ import {
   SiNumpy,
   SiPandas,
   SiGithubactions,
-  SiJupyter,
-  SiReact
+  SiJupyter
 } from 'react-icons/si';
 import Image from 'next/image';
 import React, {JSX} from 'react';
@@ -113,32 +112,6 @@ export function TechIcon({ tech, showLabel = true }: TechIconProps) {
       </TooltipProvider>
     );
   }
-
-  // Enhanced abbreviations for technologies without icons
-  const getAbbreviation = (name: string): string => {
-    const abbrMap: Record<string, string> = {
-      python: "Py",
-      pytorch: "PyT",
-      tensorflow: "TF",
-      keras: "Kr",
-      scikitlearn: "SKL",
-      langchain: "LC",
-      rag: "RAG",
-      restapis: "API",
-      llms: "LLM",
-      vllms: "vLLM",
-      raytune: "Ray",
-      etlelt: "ETL",
-      pgvector: "pgV",
-      numpy: "NP",
-      pandas: "PD",
-      githubactions: "GH",
-      cicd: "CI/CD",
-      custombenchmarkingtools: "CBT",
-      agile: "Agile"
-    };
-    return abbrMap[name] || name.substring(0, 3).toUpperCase();
-  };
 
   // Icon map using normalized keys
   const iconMap: Record<string, JSX.Element> = {

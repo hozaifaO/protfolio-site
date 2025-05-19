@@ -1,5 +1,4 @@
 import ProjectCard from "./project-card"
-import { TechTagList } from "./tech-tag-list"
 
 export default function Projects() {
   const projects = [

@@ -5,7 +5,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
 import { TechTagList } from "./tech-tag-list"
-import { TechIcon } from "./tech-icon" // Adjust the import path as necessary
 
 // Define the type for the project prop more explicitly
 interface Project {
