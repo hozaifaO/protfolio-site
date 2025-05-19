@@ -30,15 +30,15 @@ export default function Navbar() {
         setIsNavbarVisible(true)
       }
 
-      // Optional advanced logic: Hide on scroll down, show on scroll up (even above projects)
-      // if (currentScrollY > lastScrollY && currentScrollY > 50) { // Hide when scrolling down (past a small threshold)
-      //   setIsNavbarVisible(false);
-      // } else if (currentScrollY < lastScrollY || currentScrollY <= 50) { // Show when scrolling up or near top
-      //   // Only make visible again if we are above the projects section
-      //   if (currentScrollY < projectsTop) {
-      //      setIsNavbarVisible(true);
-      //   }
-      // }
+      
+       if (currentScrollY > lastScrollY && currentScrollY > 50) { // Hide when scrolling down (past a small threshold)
+         setIsNavbarVisible(false);
+       } else if (currentScrollY < lastScrollY || currentScrollY <= 50) { // Show when scrolling up or near top
+         // Only make visible again if we are above the projects section
+         if (currentScrollY < projectsTop) {
+            setIsNavbarVisible(true);
+         }
+       }
 
       setLastScrollY(currentScrollY) // Update last scroll position
     }
@@ -81,6 +81,12 @@ export default function Navbar() {
               className="px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
             >
               Resume
+            </Link>
+            <Link 
+              href="#experience" 
+              className="hover:text-foreground transition-colors"
+            >
+              Experience
             </Link>
           </div>
 
@@ -127,6 +133,13 @@ export default function Navbar() {
               onClick={toggleMenu}
             >
               Resume
+            </Link>
+            <Link 
+              href="#experience" 
+              className="block px-3 py-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Experience
             </Link>
           </div>
         </div>
