@@ -7,48 +7,34 @@ import { Menu, X } from "lucide-react"
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isNavbarVisible, setIsNavbarVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0) // Optional: For hiding on scroll down, showing on scroll up
+  const [lastScrollY, setLastScrollY] = useState(0)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
   useEffect(() => {
+    let ticking = false
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      const projectsSection = document.getElementById("projects")
-      let projectsTop = Infinity // Default to infinity if not found
-
-      if (projectsSection) {
-        projectsTop = projectsSection.offsetTop
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY
+          if (currentScrollY > lastScrollY && currentScrollY > 50) {
+            setIsNavbarVisible(false) // Hide on scroll down
+          } else {
+            setIsNavbarVisible(true) // Show on scroll up or near top
+          }
+          setLastScrollY(currentScrollY)
+          ticking = false
+        })
+        ticking = true
       }
-
-      // Logic: Hide if scrolled past projects section
-      if (currentScrollY >= projectsTop) {
-        setIsNavbarVisible(false)
-      } else {
-        setIsNavbarVisible(true)
-      }
-
-      
-       if (currentScrollY > lastScrollY && currentScrollY > 50) { // Hide when scrolling down (past a small threshold)
-         setIsNavbarVisible(false);
-       } else if (currentScrollY < lastScrollY || currentScrollY <= 50) { // Show when scrolling up or near top
-         // Only make visible again if we are above the projects section
-         if (currentScrollY < projectsTop) {
-            setIsNavbarVisible(true);
-         }
-       }
-
-      setLastScrollY(currentScrollY) // Update last scroll position
     }
-
     window.addEventListener("scroll", handleScroll, { passive: true })
-
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
-  }, [lastScrollY]) // Dependency includes lastScrollY for the optional logic
+  }, [lastScrollY])
 
   return (
     <nav 
@@ -76,17 +62,14 @@ export default function Navbar() {
             <Link href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">
               Contact
             </Link>
+            <Link href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">
+              Experience
+            </Link>
             <Link
               href="/resume"
-              className="px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              className="ml-4 px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
             >
               Resume
-            </Link>
-            <Link 
-              href="#experience" 
-              className="hover:text-foreground transition-colors"
-            >
-              Experience
             </Link>
           </div>
 

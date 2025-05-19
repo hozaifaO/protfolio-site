@@ -4,6 +4,7 @@ import { Calendar, MapPin } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { TechTagList } from "./tech-tag-list"
 
 interface WorkExperience {
   id: number;
@@ -197,12 +198,12 @@ function ExperienceCardContent({ experience }: { experience: WorkExperience }) {
         <h3 className="text-xl font-semibold text-foreground">{experience.title}</h3>
         <p className="text-primary font-medium">{experience.company}</p>
         
+        <p className="text-foreground/80 italic mt-1">Project: {experience.project}</p>
         <div className="flex flex-wrap gap-4 mt-2 text-sm text-muted-foreground">
           <div className="flex items-center">
             <Calendar size={16} className="mr-1.5" />
             <span>{experience.duration}</span>
           </div>
-          
           <div className="flex items-center">
             <MapPin size={16} className="mr-1.5" />
             <span>{experience.location}</span>
@@ -216,13 +217,7 @@ function ExperienceCardContent({ experience }: { experience: WorkExperience }) {
         ))}
       </ul>
 
-      <div className="flex flex-wrap gap-1.5 mt-4">
-        {experience.technologies.map((tech) => (
-          <span key={tech} className="px-2 py-0.5 bg-muted text-muted-foreground rounded-full text-xs">
-            {tech}
-          </span>
-        ))}
-      </div>
+      <TechTagList tags={experience.technologies} className="mt-4" />
 
       {experience.projectLink && (
         <div className="mt-4">
