@@ -1,7 +1,7 @@
 import Navbar from "@/components/navbar"
 import Hero from "@/components/hero"
 import About from "@/components/about"
-import WorkExperience from "@/components/WorkExperience"
+import WorkExperience from "@/components/work-experience"
 import Projects from "@/components/projects"
 import Contact from "@/components/contact"
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { Briefcase, Calendar, MapPin } from "lucide-react"
+import { Calendar, MapPin } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
