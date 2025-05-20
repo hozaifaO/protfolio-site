@@ -32,7 +32,10 @@ export const experiences: WorkExperience[] = [
       "Built LLM-based classification models and an interactive RAG-powered chat interface with custom PostgreSQL pgVector database integration",
       "Established scalable LLM workflows including preprocessing, fine-tuning, and deployment with RayTune optimization, presenting findings at NSA-hosted conferences"
     ],
-    technologies: ["Angular", "Java", "Spring Boot", "Python", "Django", "REST APIs", "LLMs", "vLLMs", "RayTune", "AWS EC2", "AWS S3", "ETL/ELT", "Apache Spark", "MongoDB", "PostgreSQL", "pgVector", "Git", "JUnit", "PyUnit", "Agile"],
+    technologies: [
+      "Angular", "Java", "Spring Boot", "Python", "Django", "REST APIs", "LLMs", "vLLMs", "RayTune", "AWS EC2", "AWS S3", "ETL/ELT", "Apache Spark", "MongoDB", "PostgreSQL", "pgVector", "Git", "JUnit", "PyUnit", "Agile",
+      "Flask", "TypeScript", "OpenAI", "Claude", "Gemini", "huggingface", "Data Analysis", "ARIN", "RPKI", "Full-Stack", "Model deployment", "Hyperparameter Optimization", "Model Finetuning", "W&B"
+    ],
     projectLink: "https://ncsu-las.org/2024/11/internet-routing-integrity/",
     tags: ["Angular", "Java", "Spring Boot", "Python", "LLMs", "AWS", "MongoDB", "PostgreSQL"]
   },
@@ -50,7 +53,10 @@ export const experiences: WorkExperience[] = [
       "Established modular ML pipelines with CI/CD integration and migrated development to AWS cloud infrastructure for improved collaboration",
       "Optimized inference latency and model deployment, contributing to peer-reviewed publications and delivering presentations at academic events"
     ],
-    technologies: ["Python", "PyTorch", "TensorFlow", "Scikit-Learn", "Ray Tune", "Pandas", "NumPy", "Git", "AWS", "Jupyter", "Apache Spark", "DynamoDB", "REST APIs", "CI/CD", "GitHub Actions"],
+    technologies: [
+      "Python", "PyTorch", "TensorFlow", "Scikit-Learn", "Ray Tune", "Pandas", "NumPy", "Git", "AWS", "Jupyter", "Apache Spark", "DynamoDB", "REST APIs", "CI/CD", "GitHub Actions",
+      "Machine Learning", "Research", "XGBoost", "CFD"
+    ],
     projectLink: "https://iacis.org/iis/2024/4_iis_2024_136-142.pdf",
     tags: ["Python", "PyTorch", "TensorFlow", "AWS", "CI/CD"]
   }

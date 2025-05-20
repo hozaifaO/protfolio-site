@@ -41,9 +41,6 @@ function TimelineExperienceCard({ experience, index }: { experience: WorkExperie
   // For mobile expandable functionality
   const [isExpanded, setIsExpanded] = React.useState(false);
   
-  // Determine if position is on the left or right (for desktop view)
-  const isEven = index % 2 === 0;
-
   return (
     <div 
       ref={ref}

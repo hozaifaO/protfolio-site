@@ -20,7 +20,6 @@ import {
   SiGithubactions,
   SiJupyter
 } from 'react-icons/si';
-import Image from 'next/image';
 import React , {JSX}from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -119,38 +118,41 @@ export function TechIcon({ tech, showLabel = true }: TechIconProps) {
   const displayName = displayNames[normalizedKey] || tech;
 
   // Custom SVG icons for specific services (normalized keys)
-  const customSvgIcons: Record<string, string> = {
+  const customIcons: Record<string, string> = {
+    openai: "/openai.svg",
+    claude: "/claude.svg",
+    gemini: "/googlegemini.svg",
+    kubernetes: "/kubernetes.svg",
+    flask: "/flask.svg",
+    docker: "/docker.svg",
+    typescript: "/typescript.svg",
+    dynamodb: "/DynamoDB.svg",
     aws: "/amazonwebservices.svg",
     awslambda: "/awslambda.svg",
     awssagemaker: "/SageMaker.svg",
-    dynamodb: "/DynamoDB.svg",
+    amazons3: "/amazons3.svg",
+    amazoneks: "/amazoneks.svg",
+    amazonec2: "/amazonec2.svg",
     java: "/java.svg",
+    fastapi: "/fastapi.svg",
+    huggingface: "/huggingface.svg"
   };
 
-  // Check if we have a custom SVG for this tech
-  if (customSvgIcons[normalizedKey]) {
+  if (customIcons[normalizedKey]) {
     return (
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <div className="flex items-center gap-1">
-              <Image
-                src={customSvgIcons[normalizedKey]}
-                alt={displayName}
-                width={iconSize}
-                height={iconSize}
-              />
-              {showLabel && <span className="ml-1 text-xs">{displayName}</span>}
-            </div>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>{displayName}</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={customIcons[normalizedKey]}
+          alt={displayName}
+          width={iconSize}
+          height={iconSize}
+          style={{ display: "inline-block", verticalAlign: "middle" }}
+        />
+        {showLabel && <span className="ml-1 align-middle">{displayName}</span>}
+      </>
     );
   }
-
 
   const iconMap: Record<string, JSX.Element> = {
     python: <SiPython size={iconSize} className="text-[#3776AB]" />,

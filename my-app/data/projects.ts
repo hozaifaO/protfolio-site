@@ -7,7 +7,10 @@ export const projects: Project[] = [
     description:
       "Conducted research to develop foundational DNN models using PyTorch and Ray Tune for predicting blood clots (Thrombogenesis) in COVID-19 patients, analyzing Computational Fluid Dynamics (CFD) data. Explored hyperparameter optimization, dimensionality reduction, data-streaming techniques, GPU optimization and scheduling techniques, and data encoding techniques.",
     image: "/dnn_cover.jpg?height=550&width=500",
-    tags: ["Python", "PyTorch", "Ray Tune", "Machine Learning", "Research", "XGBoost", "TensorFlow", "Scikit-learn", "AWS", "CFD", "Pandas"],
+    tags: [
+      "Python", "PyTorch", "Ray Tune", "Machine Learning", "Research", "XGBoost", "TensorFlow", "Scikit-learn", "AWS", "CFD", "Pandas",
+      "Scikit-Learn", "NumPy", "Git", "Jupyter", "Apache Spark", "DynamoDB", "REST APIs", "CI/CD", "GitHub Actions"
+    ],
     liveLink: "https://iacis.org/iis/2024/4_iis_2024_136-142.pdf",
     githubLink: "https://github.com/hozaifaO/covid-clot-detection",
   },
@@ -17,7 +20,10 @@ export const projects: Project[] = [
     description:
       "Led a student team in a full-stack research project with the NSA Lab (LAS @ NCSU). Explored ARIN datasets, visualized RPKI information and helped develop a full-stack website for policymakers using Angular and Flask. Built ETL pipelines and integrated REST APIs. Later presented and demoed the project to NIST.",
     image: "/IRI_cover.png?height=550&width=500",
-    tags: ["Angular", "Flask", "MongoDB", "AWS", "Data Analysis", "Python", "TypeScript", "REST-API", "ETL", "ARIN", "RPKI", "Full-Stack", "Model deployment","Hyperparameter Optimization", "Model Finetuning", "OpenAI / Claude / Gemini", "Hugging Face", "Research", "W&B"],
+    tags: [
+      "Angular", "Flask", "MongoDB", "AWS", "Data Analysis", "Python", "TypeScript", "REST-API", "ETL", "ARIN", "RPKI", "Full-Stack", "Model deployment", "Hyperparameter Optimization", "Model Finetuning", "OpenAI", "Claude", "Gemini", "huggingface", "Research", "W&B",
+      "Java", "Spring Boot", "Django", "REST APIs", "LLMs", "vLLMs", "RayTune", "AWS EC2", "AWS S3", "ETL/ELT", "Apache Spark", "PostgreSQL", "pgVector", "Git", "JUnit", "PyUnit", "Agile"
+    ],
     liveLink: "https://ncsu-las.org/2024/11/internet-routing-integrity/",
     githubLink: "",
   },
