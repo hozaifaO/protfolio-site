@@ -1,7 +1,7 @@
 "use client"
 
+import React from "react"
 import { Calendar, MapPin } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { TechTagList } from "./tech-tag-list"
