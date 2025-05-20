@@ -5,6 +5,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
 
+import { TechTagList } from "./tech-tag-list"
+
 // Define the type for the project prop more explicitly
 interface Project {
   id: number;
@@ -76,15 +78,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2 text-foreground">{project.title}</h3>
         <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{project.description}</p>
-
-        <div className="flex flex-wrap gap-1.5 mb-4"> {/* Slightly reduced gap */}
-          {project.tags.map((tag) => (
-            <span key={tag} className="px-2.5 py-0.5 bg-muted text-muted-foreground rounded-full text-xs"> {/* Adjusted padding */}
-              {tag}
-            </span>
-          ))}
-        </div>
-
+        <TechTagList tags={project.tags} className="mb-4" />
+        
         <div className="flex gap-4 pt-2 border-t border-border/50"> {/* Added border top */}
           {project.liveLink && (
             <Link
@@ -110,4 +105,5 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       </div>
     </div>
   );
-} 
+}
+

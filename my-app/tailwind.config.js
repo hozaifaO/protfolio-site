@@ -17,38 +17,38 @@ module.exports = {
     },
     extend: {
       colors: {
-        border: "#272727",
-        input: "#333333",
-        ring: "#BB86FC",
-        background: "#121212",
-        foreground: "#E0E0E0",
+        border: "var(--border)",
+        input: "var(--input)",
+        ring: "var(--ring)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         primary: {
-          DEFAULT: "#BB86FC",
-          foreground: "#000000",
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
         },
         secondary: {
-          DEFAULT: "#03DAC6",
-          foreground: "#000000",
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
         },
         destructive: {
-          DEFAULT: "#CF6679",
-          foreground: "#000000",
+          DEFAULT: "var(--destructive)",
+          foreground: "var(--destructive-foreground)",
         },
         muted: {
-          DEFAULT: "#333333",
-          foreground: "#A0A0A0",
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
         },
         accent: {
-          DEFAULT: "#03DAC6",
-          foreground: "#000000",
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground)",
         },
         popover: {
-          DEFAULT: "#1E1E1E",
-          foreground: "#E0E0E0",
+          DEFAULT: "var(--popover)",
+          foreground: "var(--popover-foreground)",
         },
         card: {
-          DEFAULT: "#1E1E1E",
-          foreground: "#E0E0E0",
+          DEFAULT: "var(--card)",
+          foreground: "var(--card-foreground)",
         },
       },
       borderRadius: {
@@ -83,4 +83,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} 
+}
