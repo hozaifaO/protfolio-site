@@ -21,7 +21,7 @@ import {
   SiJupyter
 } from 'react-icons/si';
 import Image from 'next/image';
-import React from 'react';
+import React , {JSX}from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface TechIconProps {
@@ -151,7 +151,7 @@ export function TechIcon({ tech, showLabel = true }: TechIconProps) {
     );
   }
 
-  // Icon map using normalized keys
+
   const iconMap: Record<string, JSX.Element> = {
     python: <SiPython size={iconSize} className="text-[#3776AB]" />,
     pytorch: <SiPytorch size={iconSize} className="text-[#EE4C2C]" />,
