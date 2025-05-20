@@ -21,7 +21,7 @@ import {
   SiJupyter
 } from 'react-icons/si';
 import Image from 'next/image';
-import React, {JSX} from 'react';
+import React from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface TechIconProps {
@@ -29,13 +29,52 @@ interface TechIconProps {
   showLabel?: boolean;
 }
 
+type TechName = 
+  | "python" 
+  | "pytorch" 
+  | "tensorflow" 
+  | "keras"
+  | "scikitlearn"
+  | "langchain"
+  | "rag"
+  | "awseks"
+  | "awsec2"
+  | "awss3"
+  | "git"
+  | "bitbucket"
+  | "angular"
+  | "springboot"
+  | "django"
+  | "mongodb"
+  | "postgresql"
+  | "pgvector"
+  | "pyunit"
+  | "apachespark"
+  | "numpy"
+  | "pandas"
+  | "githubactions"
+  | "raytune"
+  | "jupyter"
+  | "aws"
+  | "awslambda"
+  | "awssagemaker"
+  | "dynamodb"
+  | "java"
+  | "llms"
+  | "vllms"
+  | "restapis"
+  | "etlelt"
+  | "custombenchmarkingtools"
+  | "agile"
+  | "cicd";
+
 export function TechIcon({ tech, showLabel = true }: TechIconProps) {
   // Increase icon size for better visibility
   const iconSize = 20;
 
   // Normalize tech names for consistent mapping
-  const normalizeTech = (name: string) =>
-    name.toLowerCase().replace(/[^a-z0-9]/gi, "");
+  const normalizeTech = (name: string): TechName => 
+    (name.toLowerCase().replace(/[^a-z0-9]/gi, "") as TechName);
   const normalizedKey = normalizeTech(tech);
 
   // Map of normalized tech names to display names
@@ -94,15 +133,14 @@ export function TechIcon({ tech, showLabel = true }: TechIconProps) {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
-            <div className="px-3 py-1.5 bg-muted hover:bg-muted/80 text-muted-foreground rounded-full text-xs flex items-center gap-2 transition-colors min-w-[40px] justify-center">
-              <Image 
-                src={customSvgIcons[normalizedKey]} 
+            <div className="flex items-center gap-1">
+              <Image
+                src={customSvgIcons[normalizedKey]}
                 alt={displayName}
-                width={iconSize} 
-                height={iconSize} 
-                className="min-w-[20px]"
+                width={iconSize}
+                height={iconSize}
               />
-              {showLabel && <span className="whitespace-nowrap">{displayName}</span>}
+              {showLabel && <span className="ml-1 text-xs">{displayName}</span>}
             </div>
           </TooltipTrigger>
           <TooltipContent>
@@ -144,18 +182,16 @@ export function TechIcon({ tech, showLabel = true }: TechIconProps) {
   };
 
   // For technologies without an icon, show only the full display name (no abbreviation)
-  const icon = iconMap[normalizedKey] || customSvgIcons[normalizedKey]
-    ? iconMap[normalizedKey]
-    : null;
+  const icon = iconMap[normalizedKey] || null;
 
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="px-3 py-1.5 bg-muted hover:bg-muted/80 text-muted-foreground rounded-full text-xs flex items-center gap-2 transition-colors min-w-[40px] justify-center">
+          <div className="flex items-center gap-1">
             {icon}
-            {showLabel && <span className="whitespace-nowrap">{displayName}</span>}
-            {!icon && !showLabel && <span className="whitespace-nowrap">{displayName}</span>}
+            {showLabel && <span className="ml-1 text-xs">{displayName}</span>}
+            {!icon && !showLabel && <span>{displayName.substring(0, 2)}</span>}
           </div>
         </TooltipTrigger>
         <TooltipContent>

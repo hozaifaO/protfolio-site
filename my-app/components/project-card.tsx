@@ -1,22 +1,13 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
 
 import { TechTagList } from "./tech-tag-list"
-
-// Define the type for the project prop more explicitly
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  liveLink: string;
-  githubLink: string;
-}
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver"
+import { Project } from "@/types"
 
 interface ProjectCardProps {
   project: Project;
@@ -24,45 +15,17 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
-  const [isInView, setIsInView] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const currentCardRef = cardRef.current; // Capture ref value
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Update state when element comes into view
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          // Optional: Unobserve after it's visible once
-          // observer.unobserve(entry.target); 
-        }
-      },
-      {
-        threshold: 0.1, // Trigger when 10% of the card is visible
-      }
-    );
-
-    if (currentCardRef) {
-      observer.observe(currentCardRef);
-    }
-
-    // Cleanup observer on component unmount
-    return () => {
-      if (currentCardRef) {
-        observer.unobserve(currentCardRef); // Use captured value in cleanup
-      }
-    };
-  }, []); // Empty dependency array is correct here as we only want mount/unmount logic
-
+  const { ref, isInView } = useIntersectionObserver<HTMLDivElement>({
+    threshold: 0.1,
+    triggerOnce: true
+  });
   return (
     <div
-      ref={cardRef}
+      ref={ref}
       className={`bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 ease-out border border-border hover:scale-[1.03] hover:-translate-y-1 ${
         isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
-      // Optional: Stagger animation based on index
-      // style={{ transitionDelay: `${index * 100}ms` }} 
+      style={{ transitionDelay: `${index * 100}ms` }}
     >
       <div className="h-48 overflow-hidden">
         <Image

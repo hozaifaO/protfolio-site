@@ -1,15 +1,15 @@
 import Image from "next/image"
+import { SectionContainer } from "./ui/section-container"
+import { SectionHeading } from "./ui/section-heading"
 
 export default function About() {
   return (
-    <section id="about" className="py-16 bg-background text-foreground">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground">About Me</h2>
-          <div className="mt-2 h-1 w-20 bg-primary mx-auto"></div>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+    <SectionContainer id="about">
+      <SectionHeading 
+        title="About Me" 
+      />
+      
+      <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="aspect-square bg-muted rounded-lg overflow-hidden">
             <Image 
               src="/profile_pic.JPG" 
@@ -43,14 +43,10 @@ export default function About() {
                   ),
                 )}
               </div>
-            </div>
-
-            <p className="text-muted-foreground">
-              I am a dedicated and passionate individual pursuing my interests in Computer Science, Data Science, and AI/ML. My drive stems from a deep love for tackling intricate challenges, whether in machine learning, data exploration and engineering, AI, web security, or development and operations. I thrive on the process of problem-solving, spending days searching for solutions, experimenting with different approaches, learning from failures, and eventually uncovering the right path. It&apos;s the journey, not just the result, that excites me most. I am a quick learner, often eager to join and explore new things.
-            </p>
+            </div>            <p className="text-muted-foreground">
+              I am a dedicated and passionate individual pursuing my interests in Computer Science, Data Science, and AI/ML. My drive stems from a deep love for tackling intricate challenges, whether in machine learning, data exploration and engineering, AI, web security, or development and operations. I thrive on the process of problem-solving, spending days searching for solutions, experimenting with different approaches, learning from failures, and eventually uncovering the right path. It&apos;s the journey, not just the result, that excites me most. I am a quick learner, often eager to join and explore new things.            </p>
           </div>
-        </div>
       </div>
-    </section>
+    </SectionContainer>
   )
 }
