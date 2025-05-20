@@ -20,22 +20,61 @@ import {
   SiGithubactions,
   SiJupyter
 } from 'react-icons/si';
-import Image from 'next/image';
-import React, {JSX} from 'react';
+import React , {JSX}from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import Image from 'next/image';
 
 interface TechIconProps {
   tech: string;
   showLabel?: boolean;
 }
 
+type TechName = 
+  | "python" 
+  | "pytorch" 
+  | "tensorflow" 
+  | "keras"
+  | "scikitlearn"
+  | "langchain"
+  | "rag"
+  | "awseks"
+  | "awsec2"
+  | "awss3"
+  | "git"
+  | "bitbucket"
+  | "angular"
+  | "springboot"
+  | "django"
+  | "mongodb"
+  | "postgresql"
+  | "pgvector"
+  | "pyunit"
+  | "apachespark"
+  | "numpy"
+  | "pandas"
+  | "githubactions"
+  | "raytune"
+  | "jupyter"
+  | "aws"
+  | "awslambda"
+  | "awssagemaker"
+  | "dynamodb"
+  | "java"
+  | "llms"
+  | "vllms"
+  | "restapis"
+  | "etlelt"
+  | "custombenchmarkingtools"
+  | "agile"
+  | "cicd";
+
 export function TechIcon({ tech, showLabel = true }: TechIconProps) {
   // Increase icon size for better visibility
   const iconSize = 20;
 
   // Normalize tech names for consistent mapping
-  const normalizeTech = (name: string) =>
-    name.toLowerCase().replace(/[^a-z0-9]/gi, "");
+  const normalizeTech = (name: string): TechName => 
+    (name.toLowerCase().replace(/[^a-z0-9]/gi, "") as TechName);
   const normalizedKey = normalizeTech(tech);
 
   // Map of normalized tech names to display names
@@ -80,40 +119,41 @@ export function TechIcon({ tech, showLabel = true }: TechIconProps) {
   const displayName = displayNames[normalizedKey] || tech;
 
   // Custom SVG icons for specific services (normalized keys)
-  const customSvgIcons: Record<string, string> = {
+  const customIcons: Record<string, string> = {
+    openai: "/openai.svg",
+    claude: "/claude.svg",
+    gemini: "/googlegemini.svg",
+    kubernetes: "/kubernetes.svg",
+    flask: "/flask.svg",
+    docker: "/docker.svg",
+    typescript: "/typescript.svg",
+    dynamodb: "/DynamoDB.svg",
     aws: "/amazonwebservices.svg",
     awslambda: "/awslambda.svg",
     awssagemaker: "/SageMaker.svg",
-    dynamodb: "/DynamoDB.svg",
+    amazons3: "/amazons3.svg",
+    amazoneks: "/amazoneks.svg",
+    amazonec2: "/amazonec2.svg",
     java: "/java.svg",
+    fastapi: "/fastapi.svg",
+    HuggingFace: "/huggingface.svg"
   };
 
-  // Check if we have a custom SVG for this tech
-  if (customSvgIcons[normalizedKey]) {
+  if (customIcons[normalizedKey]) {
     return (
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <div className="px-3 py-1.5 bg-muted hover:bg-muted/80 text-muted-foreground rounded-full text-xs flex items-center gap-2 transition-colors min-w-[40px] justify-center">
-              <Image 
-                src={customSvgIcons[normalizedKey]} 
-                alt={displayName}
-                width={iconSize} 
-                height={iconSize} 
-                className="min-w-[20px]"
-              />
-              {showLabel && <span className="whitespace-nowrap">{displayName}</span>}
-            </div>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>{displayName}</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <>
+        <Image
+          src={customIcons[normalizedKey]}
+          alt={displayName}
+          width={iconSize}
+          height={iconSize}
+          style={{ display: "inline-block", verticalAlign: "middle" }}
+        />
+        {showLabel && <span className="ml-1 align-middle">{displayName}</span>}
+      </>
     );
   }
 
-  // Icon map using normalized keys
   const iconMap: Record<string, JSX.Element> = {
     python: <SiPython size={iconSize} className="text-[#3776AB]" />,
     pytorch: <SiPytorch size={iconSize} className="text-[#EE4C2C]" />,
@@ -144,18 +184,16 @@ export function TechIcon({ tech, showLabel = true }: TechIconProps) {
   };
 
   // For technologies without an icon, show only the full display name (no abbreviation)
-  const icon = iconMap[normalizedKey] || customSvgIcons[normalizedKey]
-    ? iconMap[normalizedKey]
-    : null;
+  const icon = iconMap[normalizedKey] || null;
 
   return (
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="px-3 py-1.5 bg-muted hover:bg-muted/80 text-muted-foreground rounded-full text-xs flex items-center gap-2 transition-colors min-w-[40px] justify-center">
+          <div className="flex items-center gap-1">
             {icon}
-            {showLabel && <span className="whitespace-nowrap">{displayName}</span>}
-            {!icon && !showLabel && <span className="whitespace-nowrap">{displayName}</span>}
+            {showLabel && <span className="ml-1 text-xs">{displayName}</span>}
+            {!icon && !showLabel && <span>{displayName.substring(0, 2)}</span>}
           </div>
         </TooltipTrigger>
         <TooltipContent>
