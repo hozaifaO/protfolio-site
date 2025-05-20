@@ -1,0 +1,27 @@
+/* Add responsive styling for experience cards */
+@media (max-width: 768px) {
+  /* Adjust the experience section container */
+  .experience-section {
+    padding: 1rem;
+  }
+  
+  /* Make description text more readable on mobile */
+  .experience-description li,
+  .experience-description p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Adjust spacing for technology tags */
+  .experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .experience-tag {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
