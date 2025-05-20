@@ -22,6 +22,7 @@ import {
 } from 'react-icons/si';
 import React , {JSX}from 'react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import Image from 'next/image';
 
 interface TechIconProps {
   tech: string;
@@ -135,14 +136,13 @@ export function TechIcon({ tech, showLabel = true }: TechIconProps) {
     amazonec2: "/amazonec2.svg",
     java: "/java.svg",
     fastapi: "/fastapi.svg",
-    huggingface: "/huggingface.svg"
+    HuggingFace: "/huggingface.svg"
   };
 
   if (customIcons[normalizedKey]) {
     return (
       <>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={customIcons[normalizedKey]}
           alt={displayName}
           width={iconSize}
