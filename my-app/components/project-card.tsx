@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
+
 import { TechTagList } from "./tech-tag-list"
 
 // Define the type for the project prop more explicitly
@@ -77,9 +78,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2 text-foreground">{project.title}</h3>
         <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{project.description}</p>
-
         <TechTagList tags={project.tags} className="mb-4" />
-
+        
         <div className="flex gap-4 pt-2 border-t border-border/50"> {/* Added border top */}
           {project.liveLink && (
             <Link
@@ -106,3 +106,4 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     </div>
   );
 }
+
