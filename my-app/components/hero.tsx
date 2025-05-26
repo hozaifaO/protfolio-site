@@ -42,9 +42,8 @@ export default function Hero() {
               className="px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
             >
               View My Work <ArrowRight size={16} />
-            </Link>
-            <Link
-              href="/H_Resume.pdf"
+            </Link>            <Link
+              href="/resumeHozaifaNew.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-md border border-border text-muted-foreground hover:bg-muted hover:text-foreground transition-colors flex items-center justify-center gap-2"
