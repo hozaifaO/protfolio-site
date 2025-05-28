@@ -82,8 +82,10 @@ export default function Navbar() {
               href="#experience"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
+
               Experience            </Link>            <Link
               href="/resumeHozaifaNew.pdf"
+
               target="_blank"
               rel="noopener noreferrer"
               className="ml-4 px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
@@ -132,8 +134,10 @@ export default function Navbar() {
               className="block px-3 py-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted"
               onClick={toggleMenu}
             >
+
               Contact            </Link>            <Link
               href="/resumeHozaifaNew.pdf"
+                                                      
               target="_blank" 
               rel="noopener noreferrer"
               className="block px-3 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90"
